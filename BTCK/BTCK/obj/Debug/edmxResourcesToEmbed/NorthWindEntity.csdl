@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyBanNuocHoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_CTHD">
+    <Key>
+      <PropertyRef Name="MaHD" />
+      <PropertyRef Name="MaHH" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" />
+    <Property Name="MaHH" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_CTHD" ToRole="tb_HoaDon" />
+  </EntityType>
+  <EntityType Name="tb_HangHoa">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="LoaiHangHoa" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="tb_LoaiHangHoa" Relationship="Self.FK_tb_HangHoa_tb_LoaiHangHoa" FromRole="tb_HangHoa" ToRole="tb_LoaiHangHoa" />
+  </EntityType>
+  <EntityType Name="tb_HoaDon">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayLap" Type="DateTime" Precision="0" />
+    <Property Name="NguoiLap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="KhachHang" Type="Int32" />
+    <NavigationProperty Name="tb_CTHD" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_HoaDon" ToRole="tb_CTHD" />
+    <NavigationProperty Name="tb_KhachHang" Relationship="Self.FK_tb_HoaDon_tb_KhachHang" FromRole="tb_HoaDon" ToRole="tb_KhachHang" />
+  </EntityType>
+  <EntityType Name="tb_KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_HoaDon_tb_KhachHang" FromRole="tb_KhachHang" ToRole="tb_HoaDon" />
+  </EntityType>
+  <EntityType Name="tb_LoaiHangHoa">
+    <Key>
+      <PropertyRef Name="MaLoaiHH" />
+    </Key>
+    <Property Name="MaLoaiHH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiHH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_HangHoa" Relationship="Self.FK_tb_HangHoa_tb_LoaiHangHoa" FromRole="tb_LoaiHangHoa" ToRole="tb_HangHoa" />
+  </EntityType>
+  <EntityType Name="tb_NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="DateTime" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_tb_CTHD_tb_HoaDon">
+    <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="1" />
+    <End Role="tb_CTHD" Type="Self.tb_CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_HoaDon">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="tb_CTHD">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_HangHoa_tb_LoaiHangHoa">
+    <End Role="tb_LoaiHangHoa" Type="Self.tb_LoaiHangHoa" Multiplicity="0..1" />
+    <End Role="tb_HangHoa" Type="Self.tb_HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_LoaiHangHoa">
+        <PropertyRef Name="MaLoaiHH" />
+      </Principal>
+      <Dependent Role="tb_HangHoa">
+        <PropertyRef Name="LoaiHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_HoaDon_tb_KhachHang">
+    <End Role="tb_KhachHang" Type="Self.tb_KhachHang" Multiplicity="0..1" />
+    <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="tb_HoaDon">
+        <PropertyRef Name="KhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyBanNuocHoaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_CTHD" EntityType="Self.tb_CTHD" />
+    <EntitySet Name="tb_HangHoa" EntityType="Self.tb_HangHoa" />
+    <EntitySet Name="tb_HoaDon" EntityType="Self.tb_HoaDon" />
+    <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" />
+    <EntitySet Name="tb_LoaiHangHoa" EntityType="Self.tb_LoaiHangHoa" />
+    <EntitySet Name="tb_NhanVien" EntityType="Self.tb_NhanVien" />
+    <AssociationSet Name="FK_tb_CTHD_tb_HoaDon" Association="Self.FK_tb_CTHD_tb_HoaDon">
+      <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+      <End Role="tb_CTHD" EntitySet="tb_CTHD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_HangHoa_tb_LoaiHangHoa" Association="Self.FK_tb_HangHoa_tb_LoaiHangHoa">
+      <End Role="tb_LoaiHangHoa" EntitySet="tb_LoaiHangHoa" />
+      <End Role="tb_HangHoa" EntitySet="tb_HangHoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_HoaDon_tb_KhachHang" Association="Self.FK_tb_HoaDon_tb_KhachHang">
+      <End Role="tb_KhachHang" EntitySet="tb_KhachHang" />
+      <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

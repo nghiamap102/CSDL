@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyBanNuocHoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_CTHD">
+          <Key>
+            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaHH" />
+          </Key>
+          <Property Name="MaHD" Type="int" Nullable="false" />
+          <Property Name="MaHH" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="money" />
+        </EntityType>
+        <EntityType Name="tb_HangHoa">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="30" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="LoaiHangHoa" Type="int" />
+          <Property Name="DonGia" Type="money" />
+        </EntityType>
+        <EntityType Name="tb_HoaDon">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayLap" Type="date" />
+          <Property Name="NguoiLap" Type="varchar" MaxLength="10" />
+          <Property Name="KhachHang" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="30" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
+          <Property Name="NamSinh" Type="date" />
+          <Property Name="SDT" Type="varchar" MaxLength="11" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tb_LoaiHangHoa">
+          <Key>
+            <PropertyRef Name="MaLoaiHH" />
+          </Key>
+          <Property Name="MaLoaiHH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiHH" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNV" Type="nvarchar" MaxLength="30" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
+          <Property Name="NamSinh" Type="date" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT" Type="varchar" MaxLength="11" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_tb_CTHD_tb_HoaDon">
+          <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="1" />
+          <End Role="tb_CTHD" Type="Self.tb_CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HoaDon">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="tb_CTHD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_HangHoa_tb_LoaiHangHoa">
+          <End Role="tb_LoaiHangHoa" Type="Self.tb_LoaiHangHoa" Multiplicity="0..1" />
+          <End Role="tb_HangHoa" Type="Self.tb_HangHoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_LoaiHangHoa">
+              <PropertyRef Name="MaLoaiHH" />
+            </Principal>
+            <Dependent Role="tb_HangHoa">
+              <PropertyRef Name="LoaiHangHoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_HoaDon_tb_KhachHang">
+          <End Role="tb_KhachHang" Type="Self.tb_KhachHang" Multiplicity="0..1" />
+          <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="tb_HoaDon">
+              <PropertyRef Name="KhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyBanNuocHoaModelStoreContainer">
+          <EntitySet Name="tb_CTHD" EntityType="Self.tb_CTHD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_HangHoa" EntityType="Self.tb_HangHoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_HoaDon" EntityType="Self.tb_HoaDon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_LoaiHangHoa" EntityType="Self.tb_LoaiHangHoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_NhanVien" EntityType="Self.tb_NhanVien" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_CTHD_tb_HoaDon" Association="Self.FK_tb_CTHD_tb_HoaDon">
+            <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+            <End Role="tb_CTHD" EntitySet="tb_CTHD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_HangHoa_tb_LoaiHangHoa" Association="Self.FK_tb_HangHoa_tb_LoaiHangHoa">
+            <End Role="tb_LoaiHangHoa" EntitySet="tb_LoaiHangHoa" />
+            <End Role="tb_HangHoa" EntitySet="tb_HangHoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_HoaDon_tb_KhachHang" Association="Self.FK_tb_HoaDon_tb_KhachHang">
+            <End Role="tb_KhachHang" EntitySet="tb_KhachHang" />
+            <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyBanNuocHoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_CTHD">
+          <Key>
+            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaHH" />
+          </Key>
+          <Property Name="MaHD" Type="Int32" Nullable="false" />
+          <Property Name="MaHH" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_CTHD" ToRole="tb_HoaDon" />
+        </EntityType>
+        <EntityType Name="tb_HangHoa">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="LoaiHangHoa" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="tb_LoaiHangHoa" Relationship="Self.FK_tb_HangHoa_tb_LoaiHangHoa" FromRole="tb_HangHoa" ToRole="tb_LoaiHangHoa" />
+        </EntityType>
+        <EntityType Name="tb_HoaDon">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayLap" Type="DateTime" Precision="0" />
+          <Property Name="NguoiLap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KhachHang" Type="Int32" />
+          <NavigationProperty Name="tb_CTHD" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_HoaDon" ToRole="tb_CTHD" />
+          <NavigationProperty Name="tb_KhachHang" Relationship="Self.FK_tb_HoaDon_tb_KhachHang" FromRole="tb_HoaDon" ToRole="tb_KhachHang" />
+        </EntityType>
+        <EntityType Name="tb_KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NamSinh" Type="DateTime" Precision="0" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_HoaDon_tb_KhachHang" FromRole="tb_KhachHang" ToRole="tb_HoaDon" />
+        </EntityType>
+        <EntityType Name="tb_LoaiHangHoa">
+          <Key>
+            <PropertyRef Name="MaLoaiHH" />
+          </Key>
+          <Property Name="MaLoaiHH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiHH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_HangHoa" Relationship="Self.FK_tb_HangHoa_tb_LoaiHangHoa" FromRole="tb_LoaiHangHoa" ToRole="tb_HangHoa" />
+        </EntityType>
+        <EntityType Name="tb_NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NamSinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tb_CTHD_tb_HoaDon">
+          <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="1" />
+          <End Role="tb_CTHD" Type="Self.tb_CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HoaDon">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="tb_CTHD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_HangHoa_tb_LoaiHangHoa">
+          <End Role="tb_LoaiHangHoa" Type="Self.tb_LoaiHangHoa" Multiplicity="0..1" />
+          <End Role="tb_HangHoa" Type="Self.tb_HangHoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_LoaiHangHoa">
+              <PropertyRef Name="MaLoaiHH" />
+            </Principal>
+            <Dependent Role="tb_HangHoa">
+              <PropertyRef Name="LoaiHangHoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_HoaDon_tb_KhachHang">
+          <End Role="tb_KhachHang" Type="Self.tb_KhachHang" Multiplicity="0..1" />
+          <End Role="tb_HoaDon" Type="Self.tb_HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="tb_HoaDon">
+              <PropertyRef Name="KhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyBanNuocHoaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_CTHD" EntityType="Self.tb_CTHD" />
+          <EntitySet Name="tb_HangHoa" EntityType="Self.tb_HangHoa" />
+          <EntitySet Name="tb_HoaDon" EntityType="Self.tb_HoaDon" />
+          <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" />
+          <EntitySet Name="tb_LoaiHangHoa" EntityType="Self.tb_LoaiHangHoa" />
+          <EntitySet Name="tb_NhanVien" EntityType="Self.tb_NhanVien" />
+          <AssociationSet Name="FK_tb_CTHD_tb_HoaDon" Association="Self.FK_tb_CTHD_tb_HoaDon">
+            <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+            <End Role="tb_CTHD" EntitySet="tb_CTHD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_HangHoa_tb_LoaiHangHoa" Association="Self.FK_tb_HangHoa_tb_LoaiHangHoa">
+            <End Role="tb_LoaiHangHoa" EntitySet="tb_LoaiHangHoa" />
+            <End Role="tb_HangHoa" EntitySet="tb_HangHoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_HoaDon_tb_KhachHang" Association="Self.FK_tb_HoaDon_tb_KhachHang">
+            <End Role="tb_KhachHang" EntitySet="tb_KhachHang" />
+            <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyBanNuocHoaModelStoreContainer" CdmEntityContainer="QuanLyBanNuocHoaEntities">
+          <EntitySetMapping Name="tb_CTHD">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_CTHD">
+              <MappingFragment StoreEntitySet="tb_CTHD">
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaHH" ColumnName="MaHH" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_HangHoa">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_HangHoa">
+              <MappingFragment StoreEntitySet="tb_HangHoa">
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="LoaiHangHoa" ColumnName="LoaiHangHoa" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_HoaDon">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_HoaDon">
+              <MappingFragment StoreEntitySet="tb_HoaDon">
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="KhachHang" ColumnName="KhachHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_KhachHang">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_KhachHang">
+              <MappingFragment StoreEntitySet="tb_KhachHang">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_LoaiHangHoa">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_LoaiHangHoa">
+              <MappingFragment StoreEntitySet="tb_LoaiHangHoa">
+                <ScalarProperty Name="MaLoaiHH" ColumnName="MaLoaiHH" />
+                <ScalarProperty Name="TenLoaiHH" ColumnName="TenLoaiHH" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_NhanVien">
+            <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_NhanVien">
+              <MappingFragment StoreEntitySet="tb_NhanVien">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
