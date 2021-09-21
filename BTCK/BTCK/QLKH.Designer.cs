@@ -119,9 +119,9 @@ namespace BTCK
             this.label1.Location = new System.Drawing.Point(437, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 25);
+            this.label1.Size = new System.Drawing.Size(237, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.label1.Text = "QUẢN LÝ KHÁCH HÀNG";
             // 
             // groupBox1
             // 

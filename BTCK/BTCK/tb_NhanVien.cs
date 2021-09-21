@@ -14,6 +14,12 @@ namespace BTCK
     
     public partial class tb_NhanVien
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tb_NhanVien()
+        {
+            this.tb_HoaDon = new HashSet<tb_HoaDon>();
+        }
+    
         public int MaNV { get; set; }
         public string TenNV { get; set; }
         public string GioiTinh { get; set; }
@@ -21,5 +27,8 @@ namespace BTCK
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string MatKhau { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_HoaDon> tb_HoaDon { get; set; }
     }
 }

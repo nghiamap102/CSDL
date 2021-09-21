@@ -53,10 +53,10 @@ namespace BTCK
         {
             gVDH.DataSource = null;
             bus.LayDSBill(gVDH);
-            //gVDH.Columns[0].Width = (int)(gVDH.Width * 0.1);
-            //gVDH.Columns[1].Width = (int)(gVDH.Width * 0.25);
-            //gVDH.Columns[2].Width = (int)(gVDH.Width * 0.15);
-            //gVDH.Columns[3].Width = (int)(gVDH.Width * 0.2);
+            gVDH.Columns[0].Width = (int)(gVDH.Width * 0.1);
+            gVDH.Columns[1].Width = (int)(gVDH.Width * 0.25);
+            gVDH.Columns[2].Width = (int)(gVDH.Width * 0.15);
+            gVDH.Columns[3].Width = (int)(gVDH.Width * 0.2);
             rsInput();
 
         }
@@ -86,10 +86,10 @@ namespace BTCK
 
             if (CheckEmpty() == true)
             {
-                p.MaHD = int.Parse(txtMaDH.Text.ToString());
+                //p.MaHD = int.Parse(txtMaDH.Text.ToString());
                 p.NgayLap = dtpNgayDatHang.Value;
 
-                p.NguoiLap = cbNhanVien.SelectedValue.ToString();
+                p.NguoiLap = int.Parse(cbNhanVien.SelectedValue.ToString());
                 p.KhachHang = int.Parse(cbKhachHang.SelectedValue.ToString());
 
                 if (bus.ThemBill(p) == true)
@@ -102,17 +102,67 @@ namespace BTCK
         }
         private void btXoa_Click(object sender, EventArgs e)
         {
+            tb_HoaDon o = new tb_HoaDon();
+            o.MaHD = int.Parse(txtMaDH.Text);
 
+            DialogResult result = MessageBox.Show(
+               "Bạn chắc chắn có muốn xóa không?",
+               "Xóa",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Warning,
+               MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                if (bus.XoaHD(o))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    rsInput();
+                    bus.LayDSBill(gVDH);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Xóa thất bại");
+            }
+            rsInput();
         }
 
         private void btSua_Click(object sender, EventArgs e)
         {
-
+            tb_HoaDon p = new tb_HoaDon();
+            p.MaHD = int.Parse(txtMaDH.Text);
+            p.NguoiLap = Int32.Parse(cbNhanVien.SelectedValue.ToString());
+            p.KhachHang = Int32.Parse(cbKhachHang.SelectedValue.ToString());
+            p.NgayLap = dtpNgayDatHang.Value;
+            if (bus.SuaHD(p))
+            {
+                MessageBox.Show("Sửa thành công");
+                rsInput();
+                bus.LayDSBill(gVDH);
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại");
+            }
         }
 
         private void btThoat_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void gVDH_DoubleClick(object sender, EventArgs e)
+        {
+            int ma;
+            ma = int.Parse(gVDH.CurrentRow.Cells[0].Value.ToString());
+            CTHD a = new CTHD();
+            a.maHD = ma;
+            a.ShowDialog();
         }
     }
 }

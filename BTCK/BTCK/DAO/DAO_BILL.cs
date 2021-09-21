@@ -8,10 +8,10 @@ namespace BTCK.DAO
 {
     class DAO_BILL
     {
-        QuanLyBanNuocHoaEntities db;
+        QuanLyBanNuocHoaEntities1 db;
         public DAO_BILL()
         {
-            db = new QuanLyBanNuocHoaEntities();
+            db = new QuanLyBanNuocHoaEntities1();
         }
         public dynamic LayDSHD()
         {

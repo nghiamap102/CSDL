@@ -25,19 +25,25 @@ namespace BTCK
             a.Show();
         }
 
-        private void quảnLýĐơnHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        private void QuanLy_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quanLyNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            QLNV f = new QLNV();
+            f.MdiParent = this;
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.Show();
         }
 
-        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quảnLýLoạiHàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            LoaiHH f = new LoaiHH();
+            f.MdiParent = this;
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.Show();
         }
     }
 }

@@ -24,11 +24,13 @@ namespace BTCK
         {
             btXoa.Enabled = true;
             btSua.Enabled = true;
+            btResetPassword.Enabled = true;
         }
         void DisableBtn()
         {
             btSua.Enabled = false;
             btXoa.Enabled = false;
+            btResetPassword.Enabled = false;
         }
         Boolean CheckEmpty()
         {
@@ -57,17 +59,18 @@ namespace BTCK
             gvNV.DataSource = null;
             //txtMaNV.Enabled = false;
             bus.LayDSNV(gvNV);
-            gvNV.Columns[0].Width = (int)(gvNV.Width * 0.1);
-            gvNV.Columns[1].Width = (int)(gvNV.Width * 0.1);
-            gvNV.Columns[2].Width = (int)(gvNV.Width * 0.1);
+            gvNV.Columns[0].Width = (int)(gvNV.Width * 0.08);
+            gvNV.Columns[1].Width = (int)(gvNV.Width * 0.15);
+            gvNV.Columns[2].Width = (int)(gvNV.Width * 0.08);
             gvNV.Columns[3].Width = (int)(gvNV.Width * 0.1);
-            gvNV.Columns[4].Width = (int)(gvNV.Width * 0.1);
-            gvNV.Columns[5].Width = (int)(gvNV.Width * 0.1);
-            gvNV.Columns[6].Width = (int)(gvNV.Width * 0.1);
+            gvNV.Columns[4].Width = (int)(gvNV.Width * 0.2);
+            gvNV.Columns[5].Width = (int)(gvNV.Width * 0.15);
+            gvNV.Columns[6].Width = (int)(gvNV.Width * 0.15);
 
         }
         private void QLNV_Load(object sender, EventArgs e)
         {
+            txtMaNV.Enabled = false;
             HienThiDSNV();
             rsInput();
         }
@@ -78,15 +81,14 @@ namespace BTCK
 
             if (CheckEmpty() == true)
             {
-                //p.MaNV = int.Parse(txtMaNV.Text.ToString());
-                p.DiaChi = txtDiaChi.Text.ToString();
-                p.MatKhau = txtMK.Text.ToString();
-                p.GioiTinh = txtSex.Text.ToString();
-                p.SDT = txtSDT.Text.ToString();
+                p.DiaChi = txtDiaChi.Text;
+                p.MatKhau = txtMK.Text;
+                p.GioiTinh = txtSex.Text;
+                p.SDT = txtSDT.Text;
                 p.NamSinh = dtpBirth.Value;
-                p.TenNV = txtTenNV.Text.ToString();
+                p.TenNV = txtTenNV.Text;
 
-                if (bus.ThemSP(p) == true)
+                if (bus.ThemNV(p) == true)
                 {
                     MessageBox.Show("Thêm Thành Công");
                     rsInput();
@@ -105,19 +107,23 @@ namespace BTCK
             o.MaNV = int.Parse(txtMaNV.Text);
 
             DialogResult result = MessageBox.Show(
-               "Bạn chắc chắn có mún xóa không?",
+               "Bạn chắc chắn có muốn xóa không?",
                "Xóa",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Warning,
                MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
-                if (bus.XoaSP(o))
+                if (bus.XoaNV(o))
                 {
                     MessageBox.Show("Xóa thành công");
                     rsInput();
                     bus.LayDSNV(gvNV);
                 }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }    
             }
 
             else
@@ -130,14 +136,13 @@ namespace BTCK
         private void btSua_Click(object sender, EventArgs e)
         {
             tb_NhanVien p = new tb_NhanVien();
+            p.MaNV = int.Parse(txtMaNV.Text);
             p.TenNV = txtTenNV.Text.ToString();
-            p.GioiTinh = txtSex.Text.ToString();
+            p.GioiTinh = txtSex.Text;
             p.NamSinh = dtpBirth.Value;
-            p.DiaChi = txtDiaChi.Text.ToString();
-            p.SDT = txtSDT.Text.ToString();
-            p.MatKhau = txtMK.Text.ToString();
-            Console.WriteLine(p.TenNV);
-            if (bus.SuaSP(p))
+            p.DiaChi = txtDiaChi.Text;
+            p.SDT = txtSDT.Text;
+            if (bus.SuaNV(p))
             {
                 MessageBox.Show("Sửa thành công");
                 rsInput();
@@ -159,16 +164,44 @@ namespace BTCK
         {
             if (e.RowIndex >= 0 && e.RowIndex < gvNV.Rows.Count)
             {
+                txtMaNV.Enabled = false;
                 EnableBtn();
                 txtMaNV.Text = gvNV.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtTenNV.Text = gvNV.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtMK.Text = gvNV.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtSDT.Text = gvNV.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtSex.Text = gvNV.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtDiaChi.Text = gvNV.Rows[e.RowIndex].Cells[4].Value.ToString();
                 dtpBirth.Text = gvNV.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtMK.Text = gvNV.Rows[e.RowIndex].Cells[6].Value.ToString();
 
             }
         }
+
+        private void btResetPassword_Click(object sender, EventArgs e)
+        {
+            if (txtMK.Text.Length == 0)
+            {
+                MessageBox.Show("Mật khẩu không được trống");
+            }
+            else
+            {
+                tb_NhanVien nv = new tb_NhanVien();
+                nv.MaNV = int.Parse(txtMaNV.Text);
+                nv.MatKhau = txtMK.Text;
+
+                if (bus.ResetPassưord(nv))
+                {
+                    MessageBox.Show("Đặt lại mật khẩu thành công");
+                    bus.LayDSNV(gvNV);
+                }
+                else
+                {
+                    MessageBox.Show("Đặt lại mật khẩu thất bại");
+                }    
+
+            }
+        }
+
+      
     }
 }

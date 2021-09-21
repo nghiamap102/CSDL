@@ -76,13 +76,12 @@ namespace BTCK
 
             if (CheckEmpty() == true)
             {
-                //p.MaNV = int.Parse(txtMaNV.Text.ToString());
-                p.DiaChi = txtDiaChi.Text.ToString();
+                p.DiaChi = txtDiaChi.Text;
                 p.Email = txtEmail.Text.ToString();
-                p.GioiTinh = txtSex.Text.ToString();
-                p.SDT = txtSDT.Text.ToString();
+                p.GioiTinh = txtSex.Text;
+                p.SDT = txtSDT.Text;
                 p.NamSinh = dtpBirth.Value;
-                p.TenKH = txtTenNV.Text.ToString();
+                p.TenKH = txtTenNV.Text;
 
                 if (bus.ThemKH(p) == true)
                 {
@@ -128,13 +127,15 @@ namespace BTCK
         private void btSua_Click(object sender, EventArgs e)
         {
             tb_KhachHang p = new tb_KhachHang();
+
+            p.MaKH = int.Parse(txtMaKH.Text);
             p.TenKH = txtTenNV.Text.ToString();
-            p.GioiTinh = txtSex.Text.ToString();
+            p.GioiTinh = txtSex.Text;
             p.NamSinh = dtpBirth.Value;
-            p.DiaChi = txtDiaChi.Text.ToString();
-            p.SDT = txtSDT.Text.ToString();
-            p.Email = txtEmail.Text.ToString();
-            Console.WriteLine(p.TenKH);
+            p.DiaChi = txtDiaChi.Text;
+            p.SDT = txtSDT.Text;
+            p.Email = txtEmail.Text;
+
             if (bus.SuaKH(p))
             {
                 MessageBox.Show("Sửa thành công");
@@ -159,10 +160,11 @@ namespace BTCK
                 EnableBtn();
                 txtMaKH.Text = gvNV.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtTenNV.Text = gvNV.Rows[e.RowIndex].Cells[1].Value.ToString();
+               
                 txtEmail.Text = gvNV.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtSDT.Text = gvNV.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtSDT.Text = gvNV.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtSex.Text = gvNV.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtDiaChi.Text = gvNV.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtDiaChi.Text = gvNV.Rows[e.RowIndex].Cells[5].Value.ToString();
                 dtpBirth.Text = gvNV.Rows[e.RowIndex].Cells[3].Value.ToString();
 
             }

@@ -214,7 +214,6 @@ namespace BTCK
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -362,7 +361,7 @@ namespace BTCK
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLHH";
-            this.Text = "Form1";
+            this.Text = "Quản lý hàng hóa";
             this.Load += new System.EventHandler(this.QLHH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

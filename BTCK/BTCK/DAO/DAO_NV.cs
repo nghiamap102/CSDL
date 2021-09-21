@@ -8,30 +8,30 @@ namespace BTCK.DAO
 {
     class DAO_NV
     {
-        QuanLyBanNuocHoaEntities db; 
+        QuanLyBanNuocHoaEntities1 db; 
         public DAO_NV()
         {
-            db = new QuanLyBanNuocHoaEntities();
+            db = new QuanLyBanNuocHoaEntities1();
         }
         public dynamic LayDSNV()
         {
             var ds = db.tb_NhanVien.Select(s => new {
-              s.MaNV,
-            s.TenNV,
-              s.GioiTinh,
-                s.NamSinh,
-                s.DiaChi,
-                s.SDT,
-                s.MatKhau
+                        s.MaNV,
+                        s.TenNV,
+                        s.GioiTinh,
+                        s.NamSinh,
+                        s.DiaChi,
+                        s.SDT,
+                        s.MatKhau
             }).ToList();
             return ds;
         }
-        public void ThemSP(tb_NhanVien p)
+        public void ThemNV(tb_NhanVien p)
         {
             db.tb_NhanVien.Add(p);
             db.SaveChanges();
         }
-        public void SuaSP(tb_NhanVien d)
+        public void SuaNV(tb_NhanVien d)
         {
             tb_NhanVien o = db.tb_NhanVien.Find(d.MaNV);
             o.TenNV = d.TenNV;
@@ -39,14 +39,21 @@ namespace BTCK.DAO
             o.GioiTinh = d.GioiTinh;
             o.DiaChi = d.DiaChi;
             o.SDT = d.SDT;
-            o.MatKhau = d.MatKhau;
 
             db.SaveChanges();
         }
-        public void XoaSP(tb_NhanVien o)
+        public void XoaNV(tb_NhanVien o)
         {
-            tb_NhanVien d = db.tb_NhanVien.Find(o.MaNV);
+            tb_NhanVien d = db.tb_NhanVien.First(f => f.MaNV == o.MaNV);
             db.tb_NhanVien.Remove(d);
+            db.SaveChanges();
+        }
+
+        public void ResetPassword(tb_NhanVien nv)
+        {
+            tb_NhanVien d = db.tb_NhanVien.First(f => f.MaNV == nv.MaNV);
+            d.MatKhau = nv.MatKhau;
+
             db.SaveChanges();
         }
     }

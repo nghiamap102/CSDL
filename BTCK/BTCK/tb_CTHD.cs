@@ -19,6 +19,7 @@ namespace BTCK
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
     
+        public virtual tb_HangHoa tb_HangHoa { get; set; }
         public virtual tb_HoaDon tb_HoaDon { get; set; }
     }
 }

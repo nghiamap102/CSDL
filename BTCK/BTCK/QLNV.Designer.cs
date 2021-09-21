@@ -35,12 +35,13 @@ namespace BTCK
             this.dienThoaiLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.txtMK = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSex = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.dtpNgayDonHang = new System.Windows.Forms.DateTimePicker();
@@ -56,6 +57,7 @@ namespace BTCK
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btResetPassword = new System.Windows.Forms.Button();
             this.btThoat = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
@@ -63,8 +65,7 @@ namespace BTCK
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gvNV = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpBirth = new System.Windows.Forms.DateTimePicker();
+            this.txtSDT = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -74,7 +75,7 @@ namespace BTCK
             // hoTenNhanVienLabel
             // 
             this.hoTenNhanVienLabel.AutoSize = true;
-            this.hoTenNhanVienLabel.Location = new System.Drawing.Point(25, 59);
+            this.hoTenNhanVienLabel.Location = new System.Drawing.Point(68, 296);
             this.hoTenNhanVienLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hoTenNhanVienLabel.Name = "hoTenNhanVienLabel";
             this.hoTenNhanVienLabel.Size = new System.Drawing.Size(101, 17);
@@ -84,7 +85,7 @@ namespace BTCK
             // ngaySinhLabel
             // 
             this.ngaySinhLabel.AutoSize = true;
-            this.ngaySinhLabel.Location = new System.Drawing.Point(25, 96);
+            this.ngaySinhLabel.Location = new System.Drawing.Point(456, 42);
             this.ngaySinhLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaySinhLabel.Name = "ngaySinhLabel";
             this.ngaySinhLabel.Size = new System.Drawing.Size(40, 17);
@@ -94,7 +95,7 @@ namespace BTCK
             // diaChiLabel
             // 
             this.diaChiLabel.AutoSize = true;
-            this.diaChiLabel.Location = new System.Drawing.Point(456, 132);
+            this.diaChiLabel.Location = new System.Drawing.Point(456, 133);
             this.diaChiLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.diaChiLabel.Name = "diaChiLabel";
             this.diaChiLabel.Size = new System.Drawing.Size(57, 17);
@@ -104,7 +105,7 @@ namespace BTCK
             // dienThoaiLabel
             // 
             this.dienThoaiLabel.AutoSize = true;
-            this.dienThoaiLabel.Location = new System.Drawing.Point(456, 61);
+            this.dienThoaiLabel.Location = new System.Drawing.Point(24, 42);
             this.dienThoaiLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dienThoaiLabel.Name = "dienThoaiLabel";
             this.dienThoaiLabel.Size = new System.Drawing.Size(107, 17);
@@ -125,15 +126,15 @@ namespace BTCK
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtSDT);
+            this.groupBox1.Controls.Add(this.dtpBirth);
             this.groupBox1.Controls.Add(this.txtMK);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSex);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.hoTenNhanVienLabel);
             this.groupBox1.Controls.Add(this.txtDiaChi);
-            this.groupBox1.Controls.Add(this.txtSDT);
             this.groupBox1.Controls.Add(this.txtTenNV);
-            this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Controls.Add(this.ngaySinhLabel);
             this.groupBox1.Controls.Add(this.diaChiLabel);
             this.groupBox1.Controls.Add(this.dienThoaiLabel);
@@ -141,23 +142,40 @@ namespace BTCK
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(915, 171);
+            this.groupBox1.Size = new System.Drawing.Size(915, 185);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin đơn hàng";
+            this.groupBox1.Text = "Thông tin nhân viên";
+            // 
+            // dtpBirth
+            // 
+            this.dtpBirth.Location = new System.Drawing.Point(165, 128);
+            this.dtpBirth.Name = "dtpBirth";
+            this.dtpBirth.Size = new System.Drawing.Size(244, 22);
+            this.dtpBirth.TabIndex = 21;
             // 
             // txtMK
             // 
-            this.txtMK.Location = new System.Drawing.Point(165, 132);
+            this.txtMK.Location = new System.Drawing.Point(165, 86);
             this.txtMK.Margin = new System.Windows.Forms.Padding(4);
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(244, 22);
             this.txtMK.TabIndex = 19;
+            this.txtMK.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 128);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Ngày Sinh:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(456, 97);
+            this.label3.Location = new System.Drawing.Point(456, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 18;
@@ -165,7 +183,7 @@ namespace BTCK
             // 
             // txtSex
             // 
-            this.txtSex.Location = new System.Drawing.Point(593, 94);
+            this.txtSex.Location = new System.Drawing.Point(560, 86);
             this.txtSex.Name = "txtSex";
             this.txtSex.Size = new System.Drawing.Size(259, 22);
             this.txtSex.TabIndex = 17;
@@ -173,42 +191,34 @@ namespace BTCK
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 135);
+            this.label2.Location = new System.Drawing.Point(28, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Mật Khẩu";
+            this.label2.Text = "Mật Khẩu:";
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(593, 137);
+            this.txtDiaChi.Location = new System.Drawing.Point(560, 130);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(259, 22);
             this.txtDiaChi.TabIndex = 3;
             // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(165, 92);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(244, 22);
-            this.txtSDT.TabIndex = 3;
-            // 
             // txtTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(593, 56);
+            this.txtTenNV.Location = new System.Drawing.Point(165, 42);
             this.txtTenNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(259, 22);
+            this.txtTenNV.Size = new System.Drawing.Size(244, 22);
             this.txtTenNV.TabIndex = 3;
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(165, 56);
+            this.txtMaNV.Location = new System.Drawing.Point(203, 296);
             this.txtMaNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(244, 22);
+            this.txtMaNV.Size = new System.Drawing.Size(67, 22);
             this.txtMaNV.TabIndex = 3;
             // 
             // dtpNgayDonHang
@@ -301,21 +311,33 @@ namespace BTCK
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btResetPassword);
             this.groupBox2.Controls.Add(this.btThoat);
             this.groupBox2.Controls.Add(this.btSua);
             this.groupBox2.Controls.Add(this.btXoa);
             this.groupBox2.Controls.Add(this.btThem);
-            this.groupBox2.Location = new System.Drawing.Point(533, 256);
+            this.groupBox2.Location = new System.Drawing.Point(417, 273);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(437, 102);
+            this.groupBox2.Size = new System.Drawing.Size(553, 102);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
+            // btResetPassword
+            // 
+            this.btResetPassword.Location = new System.Drawing.Point(323, 23);
+            this.btResetPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.btResetPassword.Name = "btResetPassword";
+            this.btResetPassword.Size = new System.Drawing.Size(100, 71);
+            this.btResetPassword.TabIndex = 4;
+            this.btResetPassword.Text = "Đặt lại mật khẩu";
+            this.btResetPassword.UseVisualStyleBackColor = true;
+            this.btResetPassword.Click += new System.EventHandler(this.btResetPassword_Click);
+            // 
             // btThoat
             // 
-            this.btThoat.Location = new System.Drawing.Point(329, 23);
+            this.btThoat.Location = new System.Drawing.Point(428, 23);
             this.btThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(100, 71);
@@ -326,7 +348,7 @@ namespace BTCK
             // 
             // btSua
             // 
-            this.btSua.Location = new System.Drawing.Point(224, 23);
+            this.btSua.Location = new System.Drawing.Point(218, 23);
             this.btSua.Margin = new System.Windows.Forms.Padding(4);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(100, 71);
@@ -337,7 +359,7 @@ namespace BTCK
             // 
             // btXoa
             // 
-            this.btXoa.Location = new System.Drawing.Point(116, 23);
+            this.btXoa.Location = new System.Drawing.Point(113, 23);
             this.btXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(100, 71);
@@ -360,19 +382,19 @@ namespace BTCK
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.gvNV);
-            this.groupBox3.Location = new System.Drawing.Point(73, 366);
+            this.groupBox3.Location = new System.Drawing.Point(71, 374);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(892, 370);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chi tiết đơn hàng";
+            this.groupBox3.Text = "Thông tin nhân viên";
             // 
             // gvNV
             // 
             this.gvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvNV.Location = new System.Drawing.Point(12, 22);
+            this.gvNV.Location = new System.Drawing.Point(12, 25);
             this.gvNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gvNV.Name = "gvNV";
             this.gvNV.RowHeadersWidth = 62;
@@ -387,41 +409,32 @@ namespace BTCK
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 30);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label4
+            // txtSDT
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 268);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 17);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Ngày Sinh";
-            // 
-            // dtpBirth
-            // 
-            this.dtpBirth.Location = new System.Drawing.Point(221, 268);
-            this.dtpBirth.Name = "dtpBirth";
-            this.dtpBirth.Size = new System.Drawing.Size(244, 22);
-            this.dtpBirth.TabIndex = 21;
+            this.txtSDT.Location = new System.Drawing.Point(560, 39);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(259, 22);
+            this.txtSDT.TabIndex = 22;
             // 
             // QLNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 751);
-            this.Controls.Add(this.dtpBirth);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(1019, 772);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.hoTenNhanVienLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLNV";
-            this.Text = "FOrderDetails";
+            this.Text = "Quản lý nhân viên";
             this.Load += new System.EventHandler(this.QLNV_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -462,7 +475,6 @@ namespace BTCK
         private System.Windows.Forms.Label dienThoaiLabel;
         private System.Windows.Forms.DataGridView gvNV;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenNV;
@@ -471,5 +483,7 @@ namespace BTCK
         private System.Windows.Forms.TextBox txtMK;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpBirth;
+        private System.Windows.Forms.Button btResetPassword;
+        private System.Windows.Forms.TextBox txtSDT;
     }
 }

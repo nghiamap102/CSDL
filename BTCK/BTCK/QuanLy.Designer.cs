@@ -30,10 +30,11 @@ namespace BTCK
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.quảnLíSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLySanPhamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLyDonHangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLyKhachHangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýLoạiHàngHóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,10 +42,11 @@ namespace BTCK
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLíSảnPhẩmToolStripMenuItem,
-            this.quảnLýĐơnHàngToolStripMenuItem,
-            this.quảnLýNhânViênToolStripMenuItem,
-            this.quảnLýKháchHàngToolStripMenuItem});
+            this.quanLySanPhamToolStripMenuItem,
+            this.quảnLýLoạiHàngHóaToolStripMenuItem,
+            this.quanLyDonHangToolStripMenuItem,
+            this.quanLyNhanVienToolStripMenuItem,
+            this.quanLyKhachHangToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 5, 0, 5);
@@ -52,33 +54,38 @@ namespace BTCK
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // quảnLíSảnPhẩmToolStripMenuItem
+            // quanLySanPhamToolStripMenuItem
             // 
-            this.quảnLíSảnPhẩmToolStripMenuItem.Name = "quảnLíSảnPhẩmToolStripMenuItem";
-            this.quảnLíSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
-            this.quảnLíSảnPhẩmToolStripMenuItem.Text = "Quản Lý Hàng Hóa";
-            this.quảnLíSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.quảnLíSảnPhẩmToolStripMenuItem_Click);
+            this.quanLySanPhamToolStripMenuItem.Name = "quanLySanPhamToolStripMenuItem";
+            this.quanLySanPhamToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.quanLySanPhamToolStripMenuItem.Text = "Quản Lý Hàng Hóa";
+            this.quanLySanPhamToolStripMenuItem.Click += new System.EventHandler(this.quảnLíSảnPhẩmToolStripMenuItem_Click);
             // 
-            // quảnLýĐơnHàngToolStripMenuItem
+            // quanLyDonHangToolStripMenuItem
             // 
-            this.quảnLýĐơnHàngToolStripMenuItem.Name = "quảnLýĐơnHàngToolStripMenuItem";
-            this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
-            this.quảnLýĐơnHàngToolStripMenuItem.Text = "Quản Lý Đơn Hàng";
-            this.quảnLýĐơnHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐơnHàngToolStripMenuItem_Click);
+            this.quanLyDonHangToolStripMenuItem.Name = "quanLyDonHangToolStripMenuItem";
+            this.quanLyDonHangToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.quanLyDonHangToolStripMenuItem.Text = "Quản Lý Đơn Hàng";
             // 
-            // quảnLýNhânViênToolStripMenuItem
+            // quanLyNhanVienToolStripMenuItem
             // 
-            this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
-            this.quảnLýNhânViênToolStripMenuItem.Text = "Quản Lý Nhân Viên";
-            this.quảnLýNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
+            this.quanLyNhanVienToolStripMenuItem.Name = "quanLyNhanVienToolStripMenuItem";
+            this.quanLyNhanVienToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.quanLyNhanVienToolStripMenuItem.Text = "Quản Lý Nhân Viên";
+            this.quanLyNhanVienToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhanVienToolStripMenuItem_Click);
             // 
-            // quảnLýKháchHàngToolStripMenuItem
+            // quanLyKhachHangToolStripMenuItem
             // 
-            this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản Lý Khách Hàng";
-            this.quảnLýKháchHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKháchHàngToolStripMenuItem_Click);
+            this.quanLyKhachHangToolStripMenuItem.Name = "quanLyKhachHangToolStripMenuItem";
+            this.quanLyKhachHangToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.quanLyKhachHangToolStripMenuItem.Text = "Quản Lý Khách Hàng";
+            // 
+            // quảnLýLoạiHàngHóaToolStripMenuItem
+            // 
+            this.quảnLýLoạiHàngHóaToolStripMenuItem.Name = "quảnLýLoạiHàngHóaToolStripMenuItem";
+            this.quảnLýLoạiHàngHóaToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
+            this.quảnLýLoạiHàngHóaToolStripMenuItem.Text = "Quản Lý Loại Hàng Hóa";
+            this.quảnLýLoạiHàngHóaToolStripMenuItem.Click += new System.EventHandler(this.quảnLýLoạiHàngHóaToolStripMenuItem_Click);
             // 
             // QuanLy
             // 
@@ -90,7 +97,8 @@ namespace BTCK
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuanLy";
-            this.Text = "Form1";
+            this.Text = "FQuanLy";
+            this.Load += new System.EventHandler(this.QuanLy_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -101,10 +109,11 @@ namespace BTCK
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem quảnLíSảnPhẩmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýĐơnHàngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quanLySanPhamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quanLyDonHangToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quanLyNhanVienToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quanLyKhachHangToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýLoạiHàngHóaToolStripMenuItem;
     }
 }
 

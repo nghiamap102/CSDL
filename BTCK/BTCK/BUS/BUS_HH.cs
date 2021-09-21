@@ -25,6 +25,10 @@ namespace BTCK.BUS
             cb.DisplayMember = "TenLoaiHH";
             cb.ValueMember = "MaLoaiHH";
         }
+        public void LayLoaiHH(DataGridView gv)
+        {
+            gv.DataSource = da.LayLoaiHH();       
+        }
         public bool ThemHH(tb_HangHoa h)
         {
             try 
@@ -57,6 +61,48 @@ namespace BTCK.BUS
                 return true;
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool ThemLoaiHH(tb_LoaiHangHoa p)
+        {
+            try
+            {
+                da.ThemLoaiHH(p);
+
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool XoaLoaiHH(int maLHH)
+        {
+            try
+            {
+                da.XoaLoaiHH(maLHH);
+
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool SuaLoaiHH(tb_LoaiHangHoa p)
+        {
+            try
+            {
+                da.SuaLoaiHH(p);
+
+                return true;
+            }
+            catch(Exception)
             {
                 return false;
             }

@@ -14,12 +14,20 @@ namespace BTCK
     
     public partial class tb_HangHoa
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tb_HangHoa()
+        {
+            this.tb_CTHD = new HashSet<tb_CTHD>();
+        }
+    
         public int MaHang { get; set; }
         public string TenHang { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<int> LoaiHangHoa { get; set; }
         public Nullable<decimal> DonGia { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_CTHD> tb_CTHD { get; set; }
         public virtual tb_LoaiHangHoa tb_LoaiHangHoa { get; set; }
     }
 }

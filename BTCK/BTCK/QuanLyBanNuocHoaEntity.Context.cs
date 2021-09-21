@@ -13,10 +13,10 @@ namespace BTCK
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyBanNuocHoaEntities : DbContext
+    public partial class QuanLyBanNuocHoaEntities1 : DbContext
     {
-        public QuanLyBanNuocHoaEntities()
-            : base("name=QuanLyBanNuocHoaEntities")
+        public QuanLyBanNuocHoaEntities1()
+            : base("name=QuanLyBanNuocHoaEntities1")
         {
         }
     

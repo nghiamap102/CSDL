@@ -19,11 +19,11 @@ namespace BTCK.BUS
         {
             gv.DataSource = da.LayDSNV();
         }
-        public bool ThemSP(tb_NhanVien p)
+        public bool ThemNV(tb_NhanVien p)
         {
             try
             {
-                da.ThemSP(p);
+                da.ThemNV(p);
                 return true;
             }
             catch (Exception)
@@ -31,11 +31,11 @@ namespace BTCK.BUS
                 return false;
             }
         }
-        public bool SuaSP(tb_NhanVien p)
+        public bool SuaNV(tb_NhanVien p)
         {
             try
             {
-                da.SuaSP(p);
+                da.SuaNV(p);
                 return true;
             }
             catch (Exception)
@@ -43,14 +43,27 @@ namespace BTCK.BUS
                 return false;
             }
         }
-        public bool XoaSP(tb_NhanVien p)
+        public bool XoaNV(tb_NhanVien p)
         {
             try
             {
-                da.XoaSP(p);
+                da.XoaNV(p);
                 return true;
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool ResetPassưord(tb_NhanVien p)
+        {
+            try
+            {
+                da.ResetPassword(p);
+                return true;
+            }
+            catch(Exception)
             {
                 return false;
             }

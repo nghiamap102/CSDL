@@ -65,7 +65,7 @@ namespace BTCK
         }
         private void QLHH_Load(object sender, EventArgs e)
         {
-            //txtMaSP.Enabled = false;
+            txtMaSP.Enabled = false;
             HienThiDSHH();
             bus.LayLoaiHH(cbLoaiHH);
             rsInput();
@@ -81,7 +81,7 @@ namespace BTCK
                 txtTenHH.Text = gVSanPham.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtSoLuong.Text = gVSanPham.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtDonGia.Text = gVSanPham.Rows[e.RowIndex].Cells[3].Value.ToString();
-                cbLoaiHH.Text = gVSanPham.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cbLoaiHH.SelectedValue = int.Parse(gVSanPham.Rows[e.RowIndex].Cells[4].Value.ToString());
             }
         }
 
@@ -108,19 +108,15 @@ namespace BTCK
                     }
                     else
                     {
-                        int count = 0;
-                        count = gVSanPham.Rows.Count;
-                        int chuoi = 0;
-                        chuoi = int.Parse(gVSanPham.Rows[count - 2].Cells[0].Value.ToString());
-                        if (count - 2 > 10)
-                        {
-                            p.MaHang = int.Parse((chuoi + 2).ToString());
-                        }
                         if (bus.ThemHH(p) == true)
                         {
                             MessageBox.Show("Thêm Thành Công");
                             rsInput();
                             bus.LayDSHH(gVSanPham);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm thất bại");
                         }
                     }
                 }
@@ -137,7 +133,7 @@ namespace BTCK
             o.MaHang = int.Parse(txtMaSP.Text);
 
             DialogResult result = MessageBox.Show(
-               "Bạn chắc chắn có mún xóa không?",
+               "Bạn chắc chắn có muốn xóa không?",
                "Xóa",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Warning,
@@ -151,7 +147,6 @@ namespace BTCK
                     bus.LayDSHH(gVSanPham);
                 }
             }
-
             else
             {
                 MessageBox.Show("Xóa đơn hàng thất bại");

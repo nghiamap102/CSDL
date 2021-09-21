@@ -22,11 +22,12 @@ namespace BTCK
     
         public int MaHD { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
-        public string NguoiLap { get; set; }
         public Nullable<int> KhachHang { get; set; }
+        public Nullable<int> NguoiLap { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_CTHD> tb_CTHD { get; set; }
         public virtual tb_KhachHang tb_KhachHang { get; set; }
+        public virtual tb_NhanVien tb_NhanVien { get; set; }
     }
 }
