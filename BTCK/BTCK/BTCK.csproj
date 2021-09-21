@@ -55,9 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BUS_BILL.cs" />
     <Compile Include="BUS\BUS_HH.cs" />
     <Compile Include="BUS\BUS_KH.cs" />
     <Compile Include="BUS\BUS_NV.cs" />
+    <Compile Include="DAO\DAO_BILL.cs" />
     <Compile Include="DAO\DAO_HH.cs" />
     <Compile Include="DAO\DAO_KH.cs" />
     <Compile Include="DAO\DAO_NV.cs" />

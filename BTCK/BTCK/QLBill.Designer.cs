@@ -281,6 +281,7 @@ namespace BTCK
             this.btThoat.TabIndex = 3;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = true;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // btSua
             // 
@@ -291,6 +292,7 @@ namespace BTCK
             this.btSua.TabIndex = 2;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXoa
             // 
@@ -301,6 +303,7 @@ namespace BTCK
             this.btXoa.TabIndex = 1;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // btThem
             // 
@@ -311,6 +314,7 @@ namespace BTCK
             this.btThem.TabIndex = 0;
             this.btThem.Text = "Tạo Hóa Đơn";
             this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // groupBox3
             // 
@@ -334,6 +338,7 @@ namespace BTCK
             this.gVDH.RowTemplate.Height = 28;
             this.gVDH.Size = new System.Drawing.Size(867, 331);
             this.gVDH.TabIndex = 0;
+            this.gVDH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gVDH_CellClick);
             // 
             // QLBill
             // 
@@ -347,6 +352,7 @@ namespace BTCK
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLBill";
             this.Text = "FOrderDetails";
+            this.Load += new System.EventHandler(this.QLBill_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
