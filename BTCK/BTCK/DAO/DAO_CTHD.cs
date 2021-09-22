@@ -14,6 +14,14 @@ namespace BTCK.DAO
         {
             db = new QuanLyBanNuocHoaEntities1();
         }
+        public dynamic LayDSCTDH(int maDH)
+        {
+            var ds = db.tb_CTHD.Where(s => s.MaHD == maDH).Select(s => new {
+                s.MaHD,
+                s.MaHH,s.SoLuong,s.DonGia
+            }).ToList();
+            return ds;
+        }
         public dynamic LayDSSP()
         {
             var ds = db.tb_HangHoa.Select(s => new { s.MaHang,s.TenHang}).ToList();
@@ -47,11 +55,7 @@ namespace BTCK.DAO
             db.tb_CTHD.Add(o);
             db.SaveChanges();
         }
-        public void ThemCTHD(tb_CTHD p)
-        {
-            db.tb_CTHD.Add(p);
-            db.SaveChanges();
-        }
+     
         public void SuaCTHD(tb_CTHD d)
         {
             tb_CTHD o = db.tb_CTHD.Find(d.MaHD);

@@ -11,6 +11,7 @@
     <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="tb_HangHoa" Relationship="Self.FK_tb_CTHD_tb_HangHoa" FromRole="tb_CTHD" ToRole="tb_HangHoa" />
     <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_CTHD" ToRole="tb_HoaDon" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
   <EntityType Name="tb_HangHoa">
     <Key>

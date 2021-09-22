@@ -9,6 +9,7 @@
     <Property Name="MaHH" Type="int" Nullable="false" />
     <Property Name="SoLuong" Type="int" />
     <Property Name="DonGia" Type="money" />
+    <Property Name="TongTien" Type="money" />
   </EntityType>
   <EntityType Name="tb_HangHoa">
     <Key>

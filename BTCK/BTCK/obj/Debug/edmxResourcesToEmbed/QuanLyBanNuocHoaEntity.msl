@@ -4,6 +4,7 @@
     <EntitySetMapping Name="tb_CTHD">
       <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_CTHD">
         <MappingFragment StoreEntitySet="tb_CTHD">
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="MaHD" ColumnName="MaHD" />
           <ScalarProperty Name="MaHH" ColumnName="MaHH" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />

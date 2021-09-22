@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyBanNuocHoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyBanNuocHoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_CTHD">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -14,6 +14,7 @@
           <Property Name="MaHH" Type="int" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="money" />
+          <Property Name="TongTien" Type="money" />
         </EntityType>
         <EntityType Name="tb_HangHoa">
           <Key>
@@ -154,8 +155,7 @@
             <End Role="tb_HoaDon" EntitySet="tb_HoaDon" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyBanNuocHoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -170,6 +170,7 @@
           <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="tb_HangHoa" Relationship="Self.FK_tb_CTHD_tb_HangHoa" FromRole="tb_CTHD" ToRole="tb_HangHoa" />
           <NavigationProperty Name="tb_HoaDon" Relationship="Self.FK_tb_CTHD_tb_HoaDon" FromRole="tb_CTHD" ToRole="tb_HoaDon" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="tb_HangHoa">
           <Key>
@@ -327,6 +328,7 @@
           <EntitySetMapping Name="tb_CTHD">
             <EntityTypeMapping TypeName="QuanLyBanNuocHoaModel.tb_CTHD">
               <MappingFragment StoreEntitySet="tb_CTHD">
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="MaHD" ColumnName="MaHD" />
                 <ScalarProperty Name="MaHH" ColumnName="MaHH" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />

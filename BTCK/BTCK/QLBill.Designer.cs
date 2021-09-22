@@ -352,7 +352,7 @@ namespace BTCK
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLBill";
-            this.Text = "FOrderDetails";
+            this.Text = "Quản Lý Hóa Đơn";
             this.Load += new System.EventHandler(this.QLBill_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

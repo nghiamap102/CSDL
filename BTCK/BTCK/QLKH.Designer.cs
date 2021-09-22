@@ -386,7 +386,7 @@ namespace BTCK
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1019, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -421,7 +421,7 @@ namespace BTCK
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLKH";
-            this.Text = "FOrderDetails";
+            this.Text = "Quản Lý Khách Hàng";
             this.Load += new System.EventHandler(this.QLKH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

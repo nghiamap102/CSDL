@@ -37,7 +37,6 @@ namespace BTCK
             this.txtMaDH = new System.Windows.Forms.TextBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dienThoaiLabel = new System.Windows.Forms.Label();
             this.numSoLuong = new System.Windows.Forms.NumericUpDown();
             this.cbSP = new System.Windows.Forms.ComboBox();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +59,8 @@ namespace BTCK
             this.gvSP = new System.Windows.Forms.DataGridView();
             this.btTaoDonHang = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbLoaiHH = new System.Windows.Forms.ComboBox();
+            this.txtThanhTien = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -75,14 +75,14 @@ namespace BTCK
             this.hoTenNhanVienLabel.Location = new System.Drawing.Point(25, 59);
             this.hoTenNhanVienLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hoTenNhanVienLabel.Name = "hoTenNhanVienLabel";
-            this.hoTenNhanVienLabel.Size = new System.Drawing.Size(103, 17);
+            this.hoTenNhanVienLabel.Size = new System.Drawing.Size(105, 17);
             this.hoTenNhanVienLabel.TabIndex = 2;
-            this.hoTenNhanVienLabel.Text = "Tên sản phẩm:";
+            this.hoTenNhanVienLabel.Text = "Tên Hàng Hóa:";
             // 
             // ngaySinhLabel
             // 
             this.ngaySinhLabel.AutoSize = true;
-            this.ngaySinhLabel.Location = new System.Drawing.Point(459, 100);
+            this.ngaySinhLabel.Location = new System.Drawing.Point(541, 113);
             this.ngaySinhLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaySinhLabel.Name = "ngaySinhLabel";
             this.ngaySinhLabel.Size = new System.Drawing.Size(68, 17);
@@ -103,12 +103,12 @@ namespace BTCK
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbLoaiHH);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtThanhTien);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtMaDH);
             this.groupBox1.Controls.Add(this.txtDonGia);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dienThoaiLabel);
             this.groupBox1.Controls.Add(this.numSoLuong);
             this.groupBox1.Controls.Add(this.cbSP);
             this.groupBox1.Controls.Add(this.hoTenNhanVienLabel);
@@ -125,54 +125,44 @@ namespace BTCK
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(459, 52);
+            this.label3.Location = new System.Drawing.Point(25, 105);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Mã đơn hàng:";
+            this.label3.Text = "Mã Hóa Đơn:";
             // 
             // txtMaDH
             // 
-            this.txtMaDH.Location = new System.Drawing.Point(575, 52);
+            this.txtMaDH.Location = new System.Drawing.Point(140, 105);
             this.txtMaDH.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaDH.Name = "txtMaDH";
-            this.txtMaDH.Size = new System.Drawing.Size(267, 22);
+            this.txtMaDH.Size = new System.Drawing.Size(108, 22);
             this.txtMaDH.TabIndex = 14;
             // 
             // txtDonGia
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(723, 100);
+            this.txtDonGia.Location = new System.Drawing.Point(378, 110);
             this.txtDonGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(136, 22);
+            this.txtDonGia.Size = new System.Drawing.Size(115, 22);
             this.txtDonGia.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(645, 100);
+            this.label2.Location = new System.Drawing.Point(295, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 19;
             this.label2.Text = "Đơn giá:";
             // 
-            // dienThoaiLabel
-            // 
-            this.dienThoaiLabel.AutoSize = true;
-            this.dienThoaiLabel.Location = new System.Drawing.Point(25, 90);
-            this.dienThoaiLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dienThoaiLabel.Name = "dienThoaiLabel";
-            this.dienThoaiLabel.Size = new System.Drawing.Size(105, 17);
-            this.dienThoaiLabel.TabIndex = 15;
-            this.dienThoaiLabel.Text = "Loại sản phẩm:";
-            // 
             // numSoLuong
             // 
-            this.numSoLuong.Location = new System.Drawing.Point(559, 98);
+            this.numSoLuong.Location = new System.Drawing.Point(650, 113);
             this.numSoLuong.Name = "numSoLuong";
-            this.numSoLuong.Size = new System.Drawing.Size(61, 22);
+            this.numSoLuong.Size = new System.Drawing.Size(115, 22);
             this.numSoLuong.TabIndex = 14;
             this.numSoLuong.Value = new decimal(new int[] {
             1,
@@ -286,7 +276,7 @@ namespace BTCK
             // 
             // btThoat
             // 
-            this.btThoat.Location = new System.Drawing.Point(382, 23);
+            this.btThoat.Location = new System.Drawing.Point(444, 23);
             this.btThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(100, 71);
@@ -296,7 +286,7 @@ namespace BTCK
             // 
             // btSua
             // 
-            this.btSua.Location = new System.Drawing.Point(265, 23);
+            this.btSua.Location = new System.Drawing.Point(324, 23);
             this.btSua.Margin = new System.Windows.Forms.Padding(4);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(100, 71);
@@ -306,7 +296,7 @@ namespace BTCK
             // 
             // btThem
             // 
-            this.btThem.Location = new System.Drawing.Point(49, 23);
+            this.btThem.Location = new System.Drawing.Point(79, 23);
             this.btThem.Margin = new System.Windows.Forms.Padding(4);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(100, 71);
@@ -317,7 +307,7 @@ namespace BTCK
             // 
             // btXoa
             // 
-            this.btXoa.Location = new System.Drawing.Point(157, 23);
+            this.btXoa.Location = new System.Drawing.Point(203, 23);
             this.btXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(100, 71);
@@ -357,6 +347,7 @@ namespace BTCK
             this.btTaoDonHang.TabIndex = 0;
             this.btTaoDonHang.Text = "Đặt hàng";
             this.btTaoDonHang.UseVisualStyleBackColor = true;
+            this.btTaoDonHang.Click += new System.EventHandler(this.btTaoDonHang_Click);
             // 
             // panel1
             // 
@@ -366,14 +357,24 @@ namespace BTCK
             this.panel1.Size = new System.Drawing.Size(127, 78);
             this.panel1.TabIndex = 12;
             // 
-            // cbLoaiHH
+            // txtThanhTien
             // 
-            this.cbLoaiHH.FormattingEnabled = true;
-            this.cbLoaiHH.Location = new System.Drawing.Point(137, 91);
-            this.cbLoaiHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbLoaiHH.Name = "cbLoaiHH";
-            this.cbLoaiHH.Size = new System.Drawing.Size(279, 24);
-            this.cbLoaiHH.TabIndex = 22;
+            this.txtThanhTien.Location = new System.Drawing.Point(613, 42);
+            this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
+            this.txtThanhTien.Multiline = true;
+            this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.Size = new System.Drawing.Size(181, 34);
+            this.txtThanhTien.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(519, 52);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Thành Tiền";
             // 
             // CTHD
             // 
@@ -387,7 +388,7 @@ namespace BTCK
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CTHD";
-            this.Text = "Form1";
+            this.Text = "Chi Tiết Hóa Đơn";
             this.Load += new System.EventHandler(this.CTHD_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -428,12 +429,12 @@ namespace BTCK
         private System.Windows.Forms.DataGridView gvSP;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label dienThoaiLabel;
         private System.Windows.Forms.NumericUpDown numSoLuong;
         private System.Windows.Forms.Button btTaoDonHang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaDH;
-        private System.Windows.Forms.ComboBox cbLoaiHH;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtThanhTien;
     }
 }

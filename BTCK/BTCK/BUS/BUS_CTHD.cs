@@ -14,6 +14,10 @@ namespace BTCK.BUS
         {
             da = new DAO.DAO_CTHD();
         }
+        public void LayDSCTDH(DataGridView gv, int maDH)
+        {
+            gv.DataSource = da.DSCTDH(maDH);
+        }
         public void LayDSSP(ComboBox cb)
         {
             cb.DataSource = da.LayDSSP();
